@@ -15,7 +15,7 @@
 
 <body>
     <!--Nav bar-->
-    <section>
+    <section class="non-mobile">
         <nav>
             <div class="logo p-2">
                 <a class="nav-link justify-content-start" href="/about.html">
@@ -44,6 +44,32 @@
             </div>
         </nav>
     </section>
+    <!--navbar   mobile mode-->
+    <section class="mobile d-sm-none">
+        <nav class="navbar position-fixed w-100" aria-label="First navbar example">
+            <div class="container-fluid">
+                <div class="mobile-nvbg d-flex justify-content-between w-100">
+                    <div class="logo p-2 ">
+                        <a class="nav-link justify-content-center" href="/about.html">
+                            <img src="assets\images\v1.png">
+                            StayAhead
+                        </a>
+                    </div><button class="navbar-toggler collapsed " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false"
+                        aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                </div>
+                <div class="navbar-collapse collapse w-100 h-auto" id="navbarsExample01">
+                    <ul class="navbar-nav me-auto mb-2 ">
+                        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Scam Alerts</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Game</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">Signup/Login</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
     <!--This is the middle part, insert your page content here-->
     <!--TODO add your section here-->
     <!--landing page-->
@@ -63,6 +89,7 @@
         </div>
     </header>
     <!--Content link-->
+    <!--Todo all anchor links and alts-->
     <section>
         <ul class="cards-container d-sm-flex align-content-center align-content-center ps-0 mx-sm-5">
             <li class="landing-cards col-sm-4 pt-4 pb-4 flex-column">
@@ -108,7 +135,7 @@
                     </p>
                 </blockquote>
                 <figcaption class="blockquote-footer">
-                   by <cite title="Source Title">James Veitch</cite>
+                    by <cite title="Source Title">James Veitch</cite>
                 </figcaption>
             </figure>
             <h2>

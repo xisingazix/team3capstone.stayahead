@@ -31,7 +31,6 @@ nav {
     background-color: #201CF1;
     display: flex;
     justify-content: space-between;
-    height: 4rem;
     align-items: center;
 }
 
@@ -51,7 +50,6 @@ nav {
 
 .nav-item a {
     color: #fff;
-
     padding-right: 1rem
 }
 
@@ -130,9 +128,51 @@ li{
     color: #ea2f5d;
 }
 /* responsive web TODO */
+/* for screen GREATER than 576px */
 @media only screen and (min-width: 576px) {
     .text-block{
     text-align: center;
    }
+}
 
+/* for screen SMALLER than 576px */
+@media only screen and (max-width: 576px) {
+     .nav-link{
+    color:#3cf11c;
+    font-size: xx-large;
+    justify-content: center;
+    align-items: center;
+   }
+
+    .non-mobile{
+        display: none;
+   }
+   
+   .mobile{
+    text-align: center;
+   }
+
+   nav{
+    background: transparent;
+   }
+
+   .mobile-nvbg{
+    background-color: #201CF1;
+   }
+   .navbar-collapse{
+    top:0;
+    background: rgba(255, 255, 255, 0.7);
+    transition: 0.3s ease-in-out;
+   }
+
+   .landing{
+    padding-top: 7rem;
+   }
+   .lowernav{
+    display: none;
+   }
+   
+   .nav-item a{
+    color: #201CF1;
+   }
 }
