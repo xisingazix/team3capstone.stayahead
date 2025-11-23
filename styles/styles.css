@@ -72,7 +72,7 @@ nav .nav-item:not(:last-child) .nav-link {
     background-color: #201CF1;
 }
 
-.disclaimer>h6 {
+.disclaimer > h6 {
     font-size: xx-small;
     display: flex;
     width: 50%;
@@ -169,6 +169,11 @@ li{
    .landing{
     padding-top: 7rem;
    }
+
+    .content{
+    padding-top: 7rem;
+   }
+   
    .lowernav{
     display: none;
    }
