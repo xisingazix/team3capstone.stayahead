@@ -31,6 +31,7 @@ nav {
     background-color: #201CF1;
     display: flex;
     justify-content: space-between;
+    height: 4rem;
     align-items: center;
 }
 
