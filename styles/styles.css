@@ -98,9 +98,8 @@ nav .nav-item:not(:last-child) .nav-link {
 
 /* End of Footer */
 
-/* ========================================
-   SCAM ALERTS PAGE STYLES
-   ======================================== */
+
+/* SCAM ALERTS PAGE STYLES */
 
 /* Hero Section */
 .hero-section {
@@ -244,9 +243,8 @@ nav .nav-item:not(:last-child) .nav-link {
     margin-left: 0.5rem;
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
+
+/* RESPONSIVE DESIGN */
 
 /* Tablet and Mobile */
 @media only screen and (max-width: 768px) {
