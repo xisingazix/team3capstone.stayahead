@@ -173,9 +173,7 @@ nav .nav-item:not(:last-child) .nav-link {
 
 .key-points ul {
     display: flex;
-<<<<<<< HEAD
     flex-direction: column;
-=======
     background-color: #1820df;
     color: #fff;
     border-top: #fff 5px solid;
@@ -316,7 +314,6 @@ input:focus {
     color:#3cf11c;
     font-size: xx-large;
     justify-content: center;
->>>>>>> login
     align-items: center;
     /* centers horizontally */
 }
@@ -352,7 +349,6 @@ input:focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-<<<<<<< HEAD
 .resource-card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transform: translateY(-3px);
@@ -481,7 +477,6 @@ input:focus {
     .disclaimer h6 {
         width: 90%;
     }
-=======
     .content{
     padding-top: 7rem;
    }
@@ -505,5 +500,4 @@ input:focus {
         min-height: calc(100vh - 6rem);
         padding: 1rem 0;
    }
->>>>>>> login
 }
