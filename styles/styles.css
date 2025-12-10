@@ -62,6 +62,42 @@ nav .nav-item:not(:last-child) .nav-link {
     background-color: #1820df;
 }
 
+/* Start of About Me section */
+.about-grid {
+    display: flex;
+    gap: 2.5rem;
+    /* Converted from 40px */
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+
+.about-text > h3 {
+    font-size: 1.8rem;
+    /* Converted from 1.8em */
+    font-weight: bold;
+    font-style:normal;
+    margin-bottom: 0.9375rem;
+    /* Converted from 15px */
+}
+
+.about-text > p {
+    font-size: x-large;
+}
+.about-image {
+    flex: 1;
+    text-align: start;
+
+}
+.about-image img {
+    width: 100%;
+    max-width: 18.75rem;
+    /* Converted from 300px */
+    
+}
+
+
+/* End of About Me section */
+
 
 /*FOOTER */
 .disclaimer {
@@ -72,7 +108,7 @@ nav .nav-item:not(:last-child) .nav-link {
     background-color: #201CF1;
 }
 
-.disclaimer>h6 {
+.disclaimer > h6 {
     font-size: xx-small;
     display: flex;
     width: 50%;
@@ -169,6 +205,11 @@ li{
    .landing{
     padding-top: 7rem;
    }
+
+    .content{
+    padding-top: 7rem;
+   }
+   
    .lowernav{
     display: none;
    }
