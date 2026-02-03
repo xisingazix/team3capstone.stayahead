@@ -655,6 +655,9 @@ footer {
   .game-container {
     padding: 3.5rem 1rem !important;
   }
+  .leaderboard-container{
+    padding-top: 4rem !important;
+  }
 }
 
 .key-points li {
@@ -885,15 +888,6 @@ footer {
 
 }
 
-/* =====================================================
-   StayAhead – profile
-   Add:
-   - Leaderboard layout
-   - Score card
-   - Top 5 list
-   - Redemption & locked/unlocked states
-   ===================================================== */
- 
 /* ---------- Variables (safe additions) ---------- */
 :root {
   --primary-blue: #1f4fd8;
@@ -915,7 +909,7 @@ footer {
   gap: 32px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 16px 64px;
+  padding: 2rem 16px 64px ;
 }
  
 .left-column {
@@ -929,7 +923,6 @@ footer {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
-  padding: 28px;
 }
  
 /* ---------- Titles ---------- */
@@ -1083,7 +1076,7 @@ footer {
 }
  
 .redeem-item-preview img {
-  max-width: 100%;
+  max-width: 25rem;
   border-radius: var(--radius-md);
   margin-bottom: 16px;
 }
@@ -1114,4 +1107,11 @@ footer {
   .leaderboard-container {
     grid-template-columns: 1fr;
   }
+}
+
+.redeemedImg{
+  max-width:55rem ;
+  max-height: 15rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
 }

@@ -91,29 +91,41 @@
         </nav>
     </section>
     <!--Leaderboard Content-->
-    <section class="content">
+    <section>
         <div class="leaderboard-container">
             <!-- LEFT COLUMN -->
             <div class="left-column">
                 <!-- YOUR SCORE CARD (CENTERED) -->
                 <div class="leaderboard-card">
-                    <h1 class="card-title" id="userIdcard">
-                        <span class="icon"></span>
-                        USERID :
-                    </h1>
-                    <p class="card-subtitle">Campaign Period: Jan 1 - Jan 31, 2026</p>
-
-                    <p class="section-label">Here's your current standing and the top 10 players:</p>
-
                     <div class="score-box">
-                        <span class="score-badge">YOUR SCORE</span>
-                        <h2 class="score-username">You</h2>
-                        <p class="score-subtitle">Your Current Rank</p>
-
+                        <span class="score-badge">YOUR SCORE CARD</span>
+                        <h2 class="score-username">Current Campaign Period: </h2>
+                        <p class="score-subtitle">Jan 1 - Jan 31, 2026</p>
                         <div class="score-metrics">
+                            <div class="metric">
+                                <p class="metric-label">Your USERID :</p>
+                                <p class="metric-value" id="userIdcard"> - </p>
+                            </div>
                             <div class="metric">
                                 <p class="metric-label">Your Score</p>
                                 <p class="metric-value" id="userScore"> - </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- REDEEMED SECTION -->
+                <div class="card mb-3 d-none" id="redeemvoucher1">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="assets\images\vouchers.jpg" class="img-fluid rounded-5 p-4" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"> $50 Worth of FAIRPRICE Gift Vouchers</h5>
+                                <p class="card-text">Objective Met: Top 5 HighScore of January 2026 Campaign</p>
+                                <p class="card-text"><small class="text-body-secondary" id="issueDate">Last updated 3
+                                        mins ago</small>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -154,38 +166,58 @@
             </div>
 
             <!-- RIGHT COLUMN - ACHIEVEMENTS & REDEMPTION -->
-            <div class="leaderboard-card">
+            <div class="leaderboard-card p-3" id="redeem-section">
                 <h1 class="achievement-card-title">
-                    <span class="icon"></span>
-                    Redemption Details
+                    Rewards & Redemption
                 </h1>
-
-                <div class="achievement-list">
+                <div class="achievement-list ">
                     <div class="achievement-item">
-                        <span class="achievement-check">✓</span>
-                        <span class="achievement-text">Highest score by the end of the campaign</span>
+                        <span class="achievement-check">Objective:</span>
+                        <span class="achievement-text"> Top 5 Highest score by the end of the campaign</span>
                     </div>
-                    <div class="reward-status">
+                    <div class="reward-status p-3">
                         <p class="reward-status-text">
-                            <span class="reward-status-label">Reward Status:</span>
-                            Special redemption offer unlocked and will be available after campaign ends on Jan 31, 2026
+                            <span class="reward-status-label">Reward Information:</span>
+                            $50 Worth of FAIRPRICE Gift Vouchers <br>
+                            <span class="reward-status-label">Proudly Sponsored by :</span> Temasek Poly
                         </p>
+
                     </div>
                 </div>
 
                 <!-- REDEEM SECTION -->
-                <div class="redeem-section">
+                <div class="redeem-section" >
                     <div class="redeem-item-preview">
                         <img id="redemptionImage" src="assets\images\vouchers.jpg" alt="Redemption Item">
                     </div>
-                    <button id="redeemButton1" class="redeem-button redeem-button--locked" disabled>
+                    <button id="redeemButton1" class="redeem-button redeem-button--locked"
+                        disabled>
                         <span class="lock-icon">🔒</span>
-                        <span>Available After Campaign Ends, 31 Jan 2026</span>
+                        <span>Redeem</span>
                     </button>
-                    <p id="RedemptionUpdate">Redemption Process Update: </p>
+                    <p class="p-3" id="RedemptionUpdate">Redemption Criteria not met </p>
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalbody">
+                        Loading
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
     </section>
 
     <!--Footer start here-->
@@ -250,7 +282,6 @@
     <script src="script/boostrap-ftns.js"></script>
     <script src="script/form-validate.js"></script>
 
-
     <!-- Redeem Button Logic -->
     <script>
         //get leaderboard
@@ -300,7 +331,8 @@
                 });
                 if (response.ok) {
                     userDto = await response.json();
-                    document.getElementById("userIdcard").textContent = `Your USERID : ${userDto.userid}`;
+
+                    document.getElementById("userIdcard").textContent = ` ${userDto.userid}`;
                     userDto.score > 0 ?
                         document.getElementById("userScore").textContent = ` Current HighScore : ${userDto.score}` :
                         document.getElementById("userScore").textContent = `You have not Attempted the game.`;
@@ -313,8 +345,7 @@
             }
         }
         function UserIsTop5() {
-            console.log(top5);
-            return top5.some(score => score.userid === top5.userid)
+            return top5.hasOwnProperty(userDto.email);
         };
         //Redeem button click handler
         document.getElementById('redeemButton1').addEventListener('click', function () {
@@ -325,13 +356,14 @@
 
         // Submit redemption Request
         async function submitRedemption(userId, voucherId) {
-            if (UserIsTop5) {
+            
+            if (UserIsTop5()) {
                 const data = {
-                    userId: userId,
-                    voucher: voucherId
-                };
+                    usersId: userId,
+                    voucherId: voucherId
+                }
                 try {
-                    const response = await fetch(`${_ENDPOINT_USERREDEEM}`, {
+                    const response = await fetch(_ENDPOINT_USERREDEEM, {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json"
@@ -341,14 +373,17 @@
 
                     if (response.ok) {
                         const userResult = await response.json();
-                        document.getElementById('RedemptionUpdate').innerText = userResult.message;
+                        document.getElementById('RedemptionUpdate').innerText = "Redemption Successful";
+                        document.getElementById("redeem-section").classList.add("d-none");
+                        document.getElementById("redeemvoucher1").classList.remove("d-none");
                     }
                 } catch (error) {
-                    console.log(error);
+
                     document.getElementById('RedemptionUpdate').textContent = 'An error occured updating the score. Try again later.';
                 }
+            } else {
+                alert("Unfortunately your score is not in Top5")
             }
-            alert("Unfortunately your score is not in Top5")
         }
         // Check if campaign has ended
         function checkCampaignStatus() {
@@ -362,21 +397,54 @@
                 redeemBtn.classList.add('redeem-button--unlocked');
                 redeemBtn.disabled = false;
                 redeemBtn.innerHTML = '<span class="lock-icon">🎁</span><span>Redeem Now</span>';
+                document.getElementById("RedemptionUpdate").textContent = "Redemption Criteria Met";
             }
         }
 
-        document.addEventListener("DOMContentLoaded", async() => {
-            
-            const highScoreStatus = await printHighscore();
-            const getUserInfoStatus = false;
+        document.addEventListener("DOMContentLoaded", async () => {
 
-            if(highScoreStatus)
+            const highScoreStatus = await printHighscore();
+            let getUserInfoStatus = false;
+
+            if (highScoreStatus)
                 getUserInfoStatus = await getUserInfo();
 
-            if(getUserInfoStatus)
+            if (getUserInfoStatus)
                 checkCampaignStatus();
 
         })
+
+        // id= issueDate .textcontent = now()-voucherIssueddate
+        // function timeAgo(date) {
+        //     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+
+        //     let interval = Math.floor(seconds / 31536000);
+        //     if (interval >= 1) return interval + " years ago";
+
+        //     interval = Math.floor(seconds / 2592000);
+        //     if (interval >= 1) return interval + " months ago";
+
+        //     interval = Math.floor(seconds / 86400);
+        //     if (interval >= 1) return interval + " days ago";
+
+        //     interval = Math.floor(seconds / 3600);
+        //     if (interval >= 1) return interval + " hours ago";
+
+        //     interval = Math.floor(seconds / 60);
+        //     if (interval >= 1) return interval + " mins ago";
+
+        //     return "just now";
+        // }
+        // timeAgo feature
+        // function redeemDate() {
+        //     try {
+
+
+        //         document.getElementById("issueDate").textContent = timeAgo(redemption.redeemDate)
+        //     } catch (error) {
+
+        //     }
+        // }
     </script>
 </body>
 
