@@ -24,5 +24,7 @@ const _ENDPOINT_USERTOPFIVE = _HOST + _PORT + "/stayahead/user/top5";
 const _ENDPOINT_USERINFOR = _HOST + _PORT + "/stayahead/user/email";
 const _ENDPOINT_USERREDEEM = _HOST + _PORT + "/stayahead/user/redemption";
 const _ENDPOINT_FINDREDEEMBYID = _HOST + _PORT + "/stayahead/user/redemption/search";
+const _ENDPOINT_REGISTERSPONSOR = _HOST + _PORT + "/stayahead/admin/sponsor";
+const _ENDPOINT_VOUCHERCREATION = _HOST + _PORT + "/stayahead/admin/voucher";
 
  

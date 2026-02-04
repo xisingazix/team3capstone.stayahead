@@ -12,6 +12,15 @@ function isEmpty(value){
 
 // Function only allows specific characters (as described in the regex)
 function isValidMsg(value){
-    const msgRegex = /^[a-zA-Z0-9\s.,!?'"-]*$/;     // reject special characters that may allow code injections scripts / sql injections
+    const msgRegex = /^[a-zA-Z0-9\s.,!?#$'"-]*$/;     // reject special characters that may allow code injections scripts / sql injections
+    return msgRegex.test(value);
+}
+
+function isValidPhone(value){
+    const msgRegex = /^\+?\d{7,15}$/;     // reject special characters that may allow code injections scripts / sql injections
+    return msgRegex.test(value);
+}
+function isId(value){
+    const msgRegex = /^\d{1,4}$/;     // reject special characters that may allow code injections scripts / sql injections
     return msgRegex.test(value);
 }

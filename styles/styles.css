@@ -1478,6 +1478,10 @@ footer .nav-link:hover {
 }
 .mobile{
   position: fixed;
-  z-index: 9999 !important;
+  z-index: 1000 !important;
+}
+.toast-container{
+  position: fixed;
+  z-index: 2000 !important;
 }
 /* End of renewed footer - mobile*/
