@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayAhead</title>
+    <!--Boostrap Style-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!--External css-->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- toast -->
+    <!-- https://getbootstrap.com/docs/5.3/components/toasts/ --> 
+    <div class="toast-container p-3 top-0 start-50 translate-middle-x">
+        <!-- Put toasts within -->
+        <div id="msg-toast" class="toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="4000">
+            <div class="d-flex">
+                <div id="msg-toast-body" class="toast-body"> 
+                <!-- Message to be added here -->
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <!--Nav bar-->
+    <section class="non-mobile">
+        <nav>
+            <div class="logo p-2">
+                <a class="nav-link text-white justify-content-start" href="about.html">
+                    <img src="assets\images\v1.png">
+                    StayAhead
+                </a>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <div>
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item px-1">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item px-1">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item px-1">
+                            <a class="nav-link" href="scamalerts.html">Scam Alerts</a>
+                        </li>
+                        <li class="nav-item px-1">
+                            <a class="nav-link" href="game.html">Game</a>
+                        </li>
+                        <li class="nav-item px-1">
+                            <a class="nav-link" id="loginLink" href="signuplogin.html">Sign-up/Login</a>
+                        </li>
+                        <li class="nav-item px-1">
+                            <a class="nav-link" id="logoutLink" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Profile Container -->
+                <div id="profileContainer" class="text-center pe-4">
+                    <div class="bg-secondary-subtle rounded-circle d-inline-flex align-items-center justify-content-center"
+                        style="width: 25px; height: 25px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray"
+                            class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg>
+                    </div>
+                    <p id="profileNameContainer" class="mb-0 fw-lighter pt-1 text-white" style="font-size: 0.8rem;">
+                        Welcome User</p>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!--navbar   mobile mode-->
+    <section class="mobile d-sm-none">
+        <nav class="navbar navbar-expand-lg navbar-dark position-fixed w-100" aria-label="First navbar example">
+            <div class="container-fluid">
+                <div class="mobile-nvbg d-flex justify-content-between w-100">
+                    <div class="logo p-2">
+                        <a class="nav-link text-white justify-content-center" href="about.html">
+                            <img src="assets\images\v1.png">
+                            StayAhead
+                        </a>
+                    </div>
+                    <div id="m_profileContainer " class="d-flex text-center p-2 justify-content-centerz-3">
+                        <div class="bg-secondary-subtle rounded-circle d-inline-flex align-items-center justify-content-center"
+                            style="width: 25px; height: 25px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray"
+                                class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            </svg>
+                        </div>
+                        <p id="m_profileNameContainer" class="mb-0 fw-lighter pt-1 text-white ps-2"
+                            style="font-size: 0.8rem;">
+                            Welcome User</p>
+                    </div>
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false"
+                        aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarsExample01">
+                    <ul class="navbar-nav me-auto mb-2 ">
+                        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="about.html">About</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="scamalerts.html">Scam Alerts</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="game.html">Game</a> </li>
+                        <li class="nav-item"> <a class="nav-link" id="m_loginLink"
+                                href="signuplogin.html">Signup/Login</a> </li>
+                        <li class="nav-item"> <a class="nav-link" id="m_logoutLink" href="#">Logout</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!--This is the middle part, insert your page content here-->
+    <!--TODO add your section here-->
+    <div class="registercontainer" id="registration-section">
+        <div class="">
+            <div class="header text-center text-white rounded">
+                <h4>Register Sponsor </h4>
+            </div>
+            <form id="formSponsor" class="needs-validation col m-4" novalidate>
+                <div class="col-md-12 mb-3">
+                    <label for="txtEmail" class="form-label mw-100">Email</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="txtEmail" aria-describedby="inputGroupPrepend2"
+                            placeholder="johncena@hotmail.com" required>
+                        <div class="invalid-feedback text-danger">
+                            Please enter a valid email.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="txtAddress" class="form-label">Address</label>
+                    <div class="input-group">
+                        <input type="address" class="form-control" id="txtAddress" aria-describedby="inputGroupPrepend2"
+                            required>
+                        <div class="invalid-feedback text-danger">
+                            Please enter a valid Address.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="txtName" class="form-label">Name</label>
+                    <div class="input-group">
+                        <input type="name" class="form-control" id="txtName" aria-describedby="inputGroupPrepend2"
+                            required>
+                        <div class="invalid-feedback text-danger">
+                            Please enter a valid Name.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="txtPhone" class="form-label">Phone</label>
+                    <div class="input-group">
+                        <input type="tel" placeholder="98423525" class="form-control" id="txtPhone"
+                            aria-describedby="inputGroupPrepend2" required>
+                        <div class="invalid-feedback text-danger">
+                            Please enter a valid Phone.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 m-3 p-4 d-flex flex-row-reverse">
+                    <button class="btn login_btn" type="submit" id="btnSponsor">Register Sponsor</button>
+                </div>
+            </form>
+        </div>
+        <div class="header text-center text-white rounded">
+            <h4>Voucher Creation </h4>
+        </div>
+        <form id="formVoucher" class="needs-validation col m-4" novalidate>
+            <div class="col-md-12 mb-3">
+                <label for="txtSponsorId" class="form-label mw-100">Sponsor Id</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="txtSponsorId" aria-describedby="inputGroupPrepend2" required>
+                    <div class="invalid-feedback text-danger">
+                        Please enter a valid email.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="txtDescription" class="form-label">Reward Description</label>
+                <div class="input-group">
+                    <input type="Description" placeholder="$50 FAIRPRICE vouchers" class="form-control" id="txtDescription" aria-describedby="inputGroupPrepend2" required>
+                <div class="invalid-feedback text-danger">
+                        Please enter a valid Description.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="txtNameVoucher" class="form-label">Name</label>
+                <div class="input-group">
+                    <input type="name" class="form-control" id="txtNameVoucher" aria-describedby="inputGroupPrepend2" required>
+                    <div class="invalid-feedback text-danger">
+                        Please enter a valid Name.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="txtTerms" class="form-label">Terms</label>
+                <div class="input-group">
+                    <input type="text" placeholder="/NA  if nil" class="form-control" id="txtTerms"
+                        aria-describedby="inputGroupPrepend2" required>
+                    <div class="invalid-feedback text-danger">
+                        Please enter a valid Phone.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 m-3 p-4 d-flex flex-row-reverse">
+                <button class="btn login_btn" type="submit" id="btnVoucher"> Voucher Creation</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!--Footer start here-->
+    <!--Footer nav links-->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a class="footer-logo" href="index.html">
+                        <img src="assets/images/v1.png" alt="StayAhead logo">
+                        <span>StayAhead</span>
+                    </a>
+                    <div class="footer-social" aria-label="Social links">
+                        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <div class="footer-heading">How we help</div>
+                        <ul>
+                            <li><a href="scamalerts.html">Scam Alerts</a></li>
+                            <li><a href="#">Game</a></li>
+                            <li><a href="signuplogin.html">Sign-up/Login</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-heading">Company</div>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Resources</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">&copy; 2025 StayAhead. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--Boostrap Javascript Library-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+
+    <!-- Scripts for authentication and notifications -->
+    <script src="script/const.js"></script>
+    <script src="script/auth.js"></script>
+    <script src="script/components/Spinner.js"></script>
+    <script src="script/loader.js"></script>
+
+    <script src="script/boostrap-ftns.js"></script>
+    <script src="script/form-validate.js"></script>
+    <script>
+
+        // Custom JS statements and function
+        // Sponsor Registration
+        document.getElementById("formSponsor").addEventListener("submit", async (event) => {
+            
+            event.preventDefault();                                                 // Prevent default browser events from happening
+
+            const email = document.getElementById("txtEmail");                      // Create constant variables to capture form inputs - txtEmail
+            const address = document.getElementById("txtAddress");                     // Create constant variables to capture form inputs - txtPassword
+            const name = document.getElementById("txtName");        // Create constant variables to capture form inputs - txtRepeatPassword
+            const phone = document.getElementById("txtPhone");        // Create constant variables to capture form inputs - txtRepeatPassword
+
+            const toastElement = document.getElementById("msg-toast");              // Get the toast element - msg-toast
+            const toastBodyElement = document.getElementById("msg-toast-body");     // Get the toast element - msg-toast-body
+            
+            if(isEmpty(email.value) || isEmpty(name.value) || isEmpty(phone.value)){ // Trap empty inputs for txtEmail and txtPassword - isEmpty()
+                showToast({toastElement, 
+                        toastBodyElement,
+                        bgColor: "danger", msg: "Email,Name & Phone must not be empty."});
+                return;
+            }
+            
+            if(!isEmail(email.value)){                                              // Trap invalid email for txtEmail - isEmail()
+                showToast({toastElement, 
+                        toastBodyElement, 
+                        bgColor:"danger", msg: "Email is invalid."});
+                return;
+            }
+            
+            if (!isValidPhone(phone.value)) {
+                showToast({toastElement, 
+                        toastBodyElement, 
+                        bgColor:"danger", msg: "Phone is invalid."});
+                return;
+            }
+            if(!isValidMsg(address.value)||!isValidMsg(name.value) ){
+                showToast({toastElement, 
+                        toastBodyElement, 
+                        bgColor:"danger", msg: "Address and name is invalid. Nil if no input"});
+                return;
+            }
+
+            spinner.createSpinner("btnSponsor");                                     // Create the spinner, apply it to btnLogin
+            spinner.displaySpinner(true);
+             
+            const formData = {                                                      // JavaScript Object formData stores the form's input values
+                email: email.value, 
+                name: name.value,
+                address: address.value,
+                phone: phone.value,
+            };           
+            console.log(formData);
+            const regSponsorSuccess = await regSponsor(formData);                             // Invoke login() function, and end (return)
+            
+            if(!regSponsorSuccess){
+                spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
+                showToast({toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to Register. Try again."});    // If login unsuccessful, provide feeback
+            }
+            if(regSponsorSuccess){
+                spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
+                showToast({toastElement, toastBodyElement, bgColor: "success", msg: "Sponsor Registered."});    // If login unsuccessful, provide feeback
+            
+            }return
+        });
+        // Voucher Creation
+        document.getElementById("formVoucher").addEventListener("submit", async (event) => {
+            
+            event.preventDefault();                                                 // Prevent default browser events from happening
+
+            const sponsorId = document.getElementById("txtSponsorId");                      // Create constant variables to capture form inputs - txtEmail
+            const rewardDescription = document.getElementById("txtDescription");                     // Create constant variables to capture form inputs - txtPassword
+            const nameVoucher = document.getElementById("txtNameVoucher");        // Create constant variables to capture form inputs - txtRepeatPassword
+            const terms = document.getElementById("txtTerms");        // Create constant variables to capture form inputs - txtRepeatPassword
+
+            const toastElement = document.getElementById("msg-toast");              // Get the toast element - msg-toast
+            const toastBodyElement = document.getElementById("msg-toast-body");     // Get the toast element - msg-toast-body
+            
+            if(isEmpty(sponsorId.value) || isEmpty(rewardDescription.value)){ // Trap empty inputs for txtEmail and txtPassword - isEmpty()
+                showToast({toastElement, 
+                        toastBodyElement,
+                        bgColor: "danger", msg: "SponsorId & Description must not be empty."});
+                return;
+            }
+            
+            if(!isValidMsg(rewardDescription.value)||
+            !isValidMsg(nameVoucher.value)||!isValidMsg(terms.value) ){                                              // Trap invalid email for txtEmail - isEmail()
+                showToast({toastElement, 
+                        toastBodyElement, 
+                        bgColor:"danger", msg: "Please check name, description and terms."});
+                return;
+            }
+            if(!isId(sponsorId.value) ){                                              // Trap invalid email for txtEmail - isEmail()
+                showToast({toastElement, 
+                        toastBodyElement, 
+                        bgColor:"danger", msg: "Sponsor id is invalid."});
+                return;
+            }
+            
+            spinner.createSpinner("btnVoucher");                                     // Create the spinner, apply it to btnLogin
+            spinner.displaySpinner(true);
+             
+            const formData = {                                                      // JavaScript Object formData stores the form's input values
+                description: rewardDescription.value, 
+                name: nameVoucher.value,
+                terms: terms.value
+            };           
+            const regSponsorSuccess = await voucherCreation(formData,sponsorId);                             // Invoke login() function, and end (return)
+            console.log(regSponsorSuccess)
+            if(!regSponsorSuccess){
+                spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
+                showToast({toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to Register. Try again."});    // If login unsuccessful, provide feeback
+            }
+            if(regSponsorSuccess){
+                spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
+                showToast({toastElement, toastBodyElement, bgColor: "success", msg: "Voucher Created."});    // If login unsuccessful, provide feeback
+            
+            }return
+        });
+    </script>
+</body>
+
+</html>
