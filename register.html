@@ -217,7 +217,12 @@
 
     <!-- Internal Custom Script -->
     <script>
-
+        document.addEventListener("DOMContentLoaded",()=>{
+            const autoFillEmail = localStorage.getItem("userEmailString");
+            if(autoFillEmail){
+                document.getElementById("txtEmail").value = autoFillEmail;
+            }
+        });
         // Custom JS statements and function
         document.getElementById("formSignup").addEventListener("submit", async (event) => {
             

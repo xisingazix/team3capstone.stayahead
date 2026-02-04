@@ -231,16 +231,10 @@ function maskEmail(email) {
     return email.replace(/(.{2})@/, '**@');
 }
 
-
-
 function showResults() {
-    updateHighscore();
-    printHighscore();
     quizSection.style.display = 'none';
     resultSection.classList.add('show');
-
     document.getElementById('final-score').innerText = `Score :${score} \nBonus Points : ${bonusPoints}`;
-
     let title, message;
     if (score >= 100) {
         title = "🏆 Perfect Score!";
@@ -258,13 +252,11 @@ function showResults() {
         title = "⚠️ Stay Alert!";
         message = "Review all scenarios carefully. Scam awareness is important for your protection!";
     }
-
     document.getElementById('results-title').textContent = title;
     document.getElementById('results-text').textContent = message;
-    const token = isAuthenticated;
-    (token) ? 
-    (document.getElementById('register-btn')?.classList.add("d-none")) :
-    (document.getElementById('register-btn')?.classList.remove("d-none"))
+    
+    printHighscore();   // print score on leaderboard
+    updateHighscore();//update database , may fail to update as user not registered
 }
 
 function restartQuiz() {
@@ -297,7 +289,7 @@ startbtn.addEventListener('click', function () {
         document.getElementById('invalid-input').classList.remove("d-none");
         return;
     }
-    localStorage.setItem("userEmailString", JSON.stringify(userEmail));  //saving email to localstorage
+    localStorage.setItem("userEmailString", userEmail);  //saving email to localstorage
     availableQns = shuffle(quizData);   //shuffle quiz
     nextbtn.classList.remove("d-none");
     loadQuestion();

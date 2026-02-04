@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
     if (!token) {
         // User is not logged in
-        console.log(m_profileContainer)
         m_profileContainer.classList.add("d-none") 
         profileContainer.classList.add("d-none");
         // desktop view
