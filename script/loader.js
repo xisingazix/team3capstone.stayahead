@@ -31,7 +31,9 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
     if (!token) {
         // User is not logged in
-        m_profileContainer, profileContainer.classList.add("d-none");
+        console.log(m_profileContainer)
+        m_profileContainer.classList.add("d-none") 
+        profileContainer.classList.add("d-none");
         // desktop view
         loginLink.classList.remove("d-none");
         logoutLink.classList.add("d-none");
@@ -58,7 +60,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
             logout();
         })
     }
-    m_profileContainer,profileContainer.addEventListener('click', function () {
+    m_profileContainer.addEventListener('click', function () {
+        window.location.href = "/profile.html";
+    })
+    profileContainer.addEventListener('click', function () {
         window.location.href = "/profile.html";
     })
     profileContainer.style.cursor = "pointer";
