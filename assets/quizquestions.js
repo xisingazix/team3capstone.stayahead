@@ -204,7 +204,7 @@ async function printHighscore(){      // update the leaderboard with the new sco
         });
 
         if (response.ok) {
-            const top5 = await response.json(); 
+            const top5 = await response.json();  
 
             const sortedTop5 = Object.fromEntries(Object.entries(top5).sort(([, a], [, b]) => b - a)); // Use 'b - a' for descending
   
