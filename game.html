@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
-        
         .header {
             background: linear-gradient(180deg, #e0e3e6, #ea2f5d);
         }
-
     </style>
 </head>
 
@@ -52,12 +51,15 @@
                 </div>
                 <!-- Profile Container -->
                 <div id="profileContainer" class="text-center pe-4">
-                    <div class="bg-secondary-subtle rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 25px; height: 25px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray" class="bi bi-person-fill" viewBox="0 0 16 16">
-                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                    <div class="bg-secondary-subtle rounded-circle d-inline-flex align-items-center justify-content-center"
+                        style="width: 25px; height: 25px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray"
+                            class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                         </svg>
                     </div>
-                    <p id="profileNameContainer" class="mb-0 fw-lighter pt-1 text-white" style="font-size: 0.8rem;">Welcome User</p>
+                    <p id="profileNameContainer" class="mb-0 fw-lighter pt-1 text-white" style="font-size: 0.8rem;">
+                        Welcome User</p>
                 </div>
             </div>
         </nav>
@@ -81,7 +83,8 @@
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                             </svg>
                         </div>
-                        <p id="m_profileNameContainer" class="mb-0 fw-lighter pt-1 text-white ps-2" style="font-size: 0.8rem;">
+                        <p id="m_profileNameContainer" class="mb-0 fw-lighter pt-1 text-white ps-2"
+                            style="font-size: 0.8rem;">
                             Welcome User</p>
                     </div>
                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -90,11 +93,13 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbarsExample01">
                     <ul class="navbar-nav me-auto mb-2 ">
-                        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="index.html">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
                         <li class="nav-item"> <a class="nav-link" href="about.html">About</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="scamalerts.html">Scam Alerts</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="game.html">Game</a> </li>
-                        <li class="nav-item"> <a class="nav-link" id="m_loginLink" href="signuplogin.html">Signup/Login</a> </li>
+                        <li class="nav-item"> <a class="nav-link" id="m_loginLink"
+                                href="signuplogin.html">Signup/Login</a> </li>
                         <li class="nav-item"> <a class="nav-link" id="m_logoutLink" href="#">Logout</a> </li>
                     </ul>
                 </div>
@@ -109,22 +114,24 @@
             <p>Test your knowledge! Can you identify common scams in Singapore?</p>
         </div>
         <div id="prequiz-section" class="">
-            <h5 class="d-flex w-100 justify-content-center text-center fw-bolder mb-4">Welcome to StayAhead , Spot the Scam Quiz !
+            <h5 class="d-flex w-100 justify-content-center text-center fw-bolder mb-4">Welcome to StayAhead , Spot the
+                Scam Quiz !
             </h5>
-            <p class="d-flex w-100  text-center justify-content-center "> 
-                You are about to take part in our January Scam Alert Quiz Campaign.<br>
-                Points will be awarded for correctly answering the questions.<br>
-                Additional Points would be awarded for how quickly you finish the quiz.<br>
-                Log in to participate in the prize reward for the Top 5 player of the Campaign! <br>
-                 Please enter your email to start the Quiz!
+            <p class="d-flex w-100  text-center justify-content-center ">
+                Ready to join the January Scam Alert Challenge?<br>
+                Knowledge is your best defense! Score points for accuracy and extra points for speed. The faster you
+                are, the higher you climb.<br>
+
+                Top 5 players win exclusive rewards. Log in now to secure your place on the leaderboard. Enter your
+                email to start the clock!
             </p>
             <form class="needs-validation" novalidate>
                 <input class="w-100 mb-4 p-2 rounded form-control" type="email" id="userEmail"
                     placeholder="johnCena@hotmail.com">
-                <div class="d-none" id="invalid-input" > Please enter a valid email</div>
+                <div class="d-none" id="invalid-input"> Please enter a valid email</div>
                 <button class="btn btn-custom btn-start d-flex fw-semibold w-100 justify-content-center" id="start-btn"
                     type="button">Start Quiz</button>
-                
+
             </form>
         </div>
         <div id="quiz-section">
@@ -146,7 +153,8 @@
             </div>
 
             <div class="button-group mt-4">
-                <button class="btn-custom btn-next fw-semibold d-none mb-4" id="next-btn" disabled>Next Question</button>
+                <button class="btn-custom btn-next fw-semibold d-none mb-4" id="next-btn" disabled>Next
+                    Question</button>
             </div>
         </div>
 
@@ -154,10 +162,10 @@
             <div class="score-circle fw-bold" id="final-score">10/10</div>
             <div class="results-title mb-2 fw-bold " id="results-title">Excellent!</div>
             <div class="results-text mb-5" id="results-text">You scored perfectly! Stay alert!</div>
-
+            <div class="rounded border p-2">Bonus points are awarded for Your Speed too!</div>
             <h2 class="w-100 fw-bolder m-3">High Scores</h2>
             <div class="table-container w-100">
-                <table class="w-100 table table-danger table-striped table-hover">
+                <table class="w-100 table  table-striped ">
                     <thead>
                         <tr>
                             <th scope="col">Rank</th>
@@ -166,27 +174,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr id="1">
                             <th class="tableid" scope="row"> - </td>
                             <td class="leaderid"> - </td>
                             <td class="leaderscore"> - </td>
                         </tr>
-                        <tr id="second">
+                        <tr id="2">
                             <th class="tableid" scope="row"> - </td>
                             <td class="leaderid"> - </td>
                             <td class="leaderscore"> - </td>
                         </tr>
-                        <tr id="third">
+                        <tr id="3">
                             <th class="tableid" scope="row"> - </td>
                             <td class="leaderid"> - </td>
                             <td class="leaderscore"> - </td>
                         </tr>
-                        <tr id="fourth">
+                        <tr id="4">
                             <th class="tableid" scope="row"> - </td>
                             <td class="leaderid"> - </td>
                             <td class="leaderscore"> - </td>
                         </tr>
-                        <tr id="fifth">
+                        <tr id="5">
                             <th class="tableid" scope="row"> - </td>
                             <td class="leaderid"> - </td>
                             <td class="leaderscore"> - </td>
@@ -246,18 +254,18 @@
             </div>
         </div>
     </footer>
-    
+
     <!--Boostrap Javascript Library-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-    </script>
+        </script>
 
     <script src="script/const.js"></script>
     <script src="assets/quizquestions.js"></script>
     <script src="script/auth.js"></script>
     <script src="script/components/Spinner.js"></script>
     <script src="script/loader.js"></script>
-    
+
     <script src="script/boostrap-ftns.js"></script>
     <script src="script/form-validate.js"></script>
 
@@ -266,7 +274,7 @@
 
             const token = isAuthenticated();
 
-            if(token){
+            if (token) {
                 const user = decodeUser(token);
                 const txtEmail = document.getElementById("userEmail");
                 txtEmail.value = user.email;

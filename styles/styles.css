@@ -1171,15 +1171,15 @@ input:focus {
 }
  
 .tableid {
-  font-weight: 700;
+  font-weight: 500;
 }
  
 .leaderid {
-  font-weight: 600;
+  font-weight: 500;
 }
  
 .leaderscore {
-  font-weight: 700;
+  font-weight: 500;
 }
  
 /* ---------- Achievements ---------- */
@@ -1484,4 +1484,21 @@ footer .nav-link:hover {
   position: fixed;
   z-index: 2000 !important;
 }
-/* End of renewed footer - mobile*/
+
+/* Target the specific row */
+.userOnTop5 {
+    border: 3px solid #0dbce3;
+    transition: transform 0.2s ease-in-out;
+}
+
+.userOnTop5 td, .userOnTop5 th{
+    padding: 1.25rem; 
+    font-weight: 800;
+    color: #4812d1 !important; 
+}
+
+/* Hover effect to make it interactive */
+.userOnTop5:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}

@@ -157,7 +157,7 @@ function selectOption(index) {
 function nextQuestion() {
     currentQuestion++;
 
-    if (currentQuestion < 10) { //TODO: qns to end page ,adjust here 
+    if (currentQuestion < 1) { //TODO: qns to end page ,adjust here 
         loadQuestion();
     } else {
         const endTime = performance.now();  // stop bonus timer
@@ -182,18 +182,18 @@ async function updateHighscore() {
         });
 
         if (response.ok) {
-            const userResult = await response.json(); 
+            const userResult = await response.json();
             document.getElementById('scoreUpdate').innerText = userResult.message;
-        } 
+        }
     } catch (error) {
         console.log(error);
-       document.getElementById('scoreUpdate').textContent =  'An error occured updating the score. Try again later.' ;
+        document.getElementById('scoreUpdate').textContent = 'An error occured updating the score. Try again later.';
     }
 }
 
 //backend verify score within max possible limit,save score to data base
-async function printHighscore(){      // update the leaderboard with the new scores
-    
+async function printHighscore() {      // update the leaderboard with the new scores
+
     let leaderboardtableId = document.querySelectorAll('.tableid');
     let leaderboardId = document.querySelectorAll('.leaderid');
     let leaderboardScore = document.querySelectorAll('.leaderscore');
@@ -204,18 +204,25 @@ async function printHighscore(){      // update the leaderboard with the new sco
         });
 
         if (response.ok) {
-            const top5 = await response.json();  
-
+            const top5 = await response.json();
+            top5[userEmail] = (score + bonusPoints);
             const sortedTop5 = Object.fromEntries(Object.entries(top5).sort(([, a], [, b]) => b - a)); // Use 'b - a' for descending
-  
+
             Object.entries(sortedTop5).forEach(([email, score], index) => {
-                leaderboardtableId[index].textContent = index + 1;
-                leaderboardId[index].textContent = maskEmail(email);
-                leaderboardScore[index].textContent = score;
+                if (index <= 4) {
+                    leaderboardtableId[index].textContent = index + 1;
+                    leaderboardScore[index].textContent = score;
+                    if (email === userEmail) {
+                        leaderboardId[index].textContent = email;
+                        document.getElementById(index + 1).classList.add("userOnTop5")
+                    } else {
+                        leaderboardId[index].textContent = maskEmail(email);
+                    }
+                }
             });
-        } 
+        }
     } catch (error) {
-       document.getElementById('scoreUpdate').textContent =  'An error occured updating the score. Try again later.' ;
+        document.getElementById('scoreUpdate').textContent = 'An error occured updating the score. Try again later.';
     }
 }
 
@@ -254,6 +261,10 @@ function showResults() {
 
     document.getElementById('results-title').textContent = title;
     document.getElementById('results-text').textContent = message;
+    const token = isAuthenticated;
+    (token) ? 
+    (document.getElementById('register-btn')?.classList.add("d-none")) :
+    (document.getElementById('register-btn')?.classList.remove("d-none"))
 }
 
 function restartQuiz() {
@@ -261,7 +272,7 @@ function restartQuiz() {
     score = 0;
     bonusPoints = 0;
     answered = false;
-
+    document.querySelector('.userOnTop5')?.classList.remove("userOnTop5");
     quizSection.style.display = 'block';
     resultSection.classList.remove('show');
     availableQns = shuffle(quizData);   //shuffle quiz
@@ -269,25 +280,24 @@ function restartQuiz() {
     startTime = performance.now(); // start timer
 }
 
-document.getElementById('register-btn').addEventListener ('click', function(){
+document.getElementById('register-btn').addEventListener('click', function () {
     const totalScore = score + bonusPoints;
     localStorage.setItem("userScore", JSON.stringify(totalScore)); // saving highscore to localstorage
-    
-    window.location.href = "signuplogin.html";    // send user to register page
+    window.location.href = "register.html";    // send user to register page
 });
 
 nextbtn.onclick = nextQuestion;
 document.getElementById('restart-btn').onclick = restartQuiz;
-
+let userEmail;
 // Initialize
-startbtn.addEventListener('click', function () { 
-    const userEmail = document.getElementById('userEmail').value;
+startbtn.addEventListener('click', function () {
+    userEmail = document.getElementById('userEmail').value;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if((!emailRegex.test(userEmail))|| userEmail === ""){
+    if ((!emailRegex.test(userEmail)) || userEmail === "") {
         document.getElementById('invalid-input').classList.remove("d-none");
         return;
     }
-    localStorage.setItem("userEmailString", JSON.stringify(userEmail)); //saving email to localstorage
+    localStorage.setItem("userEmailString", JSON.stringify(userEmail));  //saving email to localstorage
     availableQns = shuffle(quizData);   //shuffle quiz
     nextbtn.classList.remove("d-none");
     loadQuestion();
