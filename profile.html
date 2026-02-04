@@ -71,7 +71,20 @@
                             <img src="assets\images\v1.png">
                             StayAhead
                         </a>
-                    </div><button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    </div>
+                    <div id="m_profileContainer " class="d-flex text-center p-2 justify-content-centerz-3">
+                        <div class="bg-secondary-subtle rounded-circle d-inline-flex align-items-center justify-content-center"
+                            style="width: 25px; height: 25px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray"
+                                class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            </svg>
+                        </div>
+                        <p id="m_profileNameContainer" class="mb-0 fw-lighter pt-1 text-white ps-2" style="font-size: 0.8rem;">
+                            Welcome User</p>
+                    </div>
+
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false"
                         aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                 </div>
@@ -123,8 +136,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Successfully Claimed : $50 Worth of FAIRPRICE Gift Vouchers</h5>
                                 <p class="card-text">Objective Met: Top 5 HighScore of January 2026 Campaign</p>
-                                <p class="card-text"><small class="text-body-secondary" id="issueDate">Last updated 3
-                                        mins ago</small>
+                                <p class="card-text"><small class="text-body-secondary" id="issueDate">Redeemed </small>
                                 </p>
                             </div>
                         </div>
@@ -308,7 +320,7 @@
                 }
             } catch (error) {
                 console.log(error);
-                alert("An error occured");
+                alert("An error occured updating the leaderboard");
                 return;
             }
         }
@@ -444,17 +456,15 @@
                     if (isVoucherPresent) {
                         document.getElementById("redeem-section").classList.add("d-none");
                         document.getElementById("redeemvoucher1").classList.remove("d-none");
-                        redeemDate(redeem.redeemDate);
-
+                        redeemDate(userResult[0].redeemDate);
                     }
                 }
             } catch (error) {
-                console.log("nono");
                 document.getElementById('RedemptionUpdate').textContent = 'An error occured updating the score. Try again later.';
             }
         }
 
-        // id = issueDate.textcontent = now()-voucherIssueddate
+        // Redeem XXX ago function
         function timeAgo(dateStr) {
             const day = dateStr.substring(0, 2);
             const month = dateStr.substring(2, 4);
@@ -485,7 +495,7 @@
         }
 
         function redeemDate(redemption) {
-            document.getElementById("issueDate").textContent = timeAgo(redemption) ;
+            document.getElementById("issueDate").textContent = `Redeemed ${timeAgo(redemption)}`;
         }
 
 

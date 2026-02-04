@@ -791,10 +791,6 @@ input:focus {
     display: none;
   }
 
-  /* .nav-item a {
-    color: #00008B;
-  } */
-
   .scam-alert-content {
     padding-top: 4rem;
   }
@@ -1480,5 +1476,8 @@ footer .nav-link:hover {
     border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 }
-
+.mobile{
+  position: fixed;
+  z-index: 9999 !important;
+}
 /* End of renewed footer - mobile*/
