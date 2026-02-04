@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         // User is logged in
         const user = decodeUser(token);
         profileNameContainer.textContent = displayName(user.email);
+        profileContainer.style.cursor = "pointer";
         // desktop view
         loginLink.classList.add("d-none");
         logoutLink.classList.remove("d-none");
