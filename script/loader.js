@@ -1,4 +1,7 @@
 let spinner = null;
+function displayName(email){
+   return email.split('@')[0];
+}
 
 // EventListener to instantiate the navController
 document.addEventListener("DOMContentLoaded", async (event) => {
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     else{
         // User is logged in
         const user = decodeUser(token);
-        profileNameContainer.textContent = user.email;
+        profileNameContainer.textContent = displayName(user.email);
         // desktop view
         loginLink.classList.add("d-none");
         logoutLink.classList.remove("d-none");
@@ -53,3 +56,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         })
     }
 });
+
+document.getElementById("profileContainer").addEventListener('click', function(){
+    window.location.href = "/profile.html";
+})

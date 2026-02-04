@@ -47,7 +47,7 @@
                     </ul>
                 </div>
                 <!-- Profile Container -->
-                <div id="profileContainer" class="text-center pe-4">
+                <div id="profileContainer " class="text-center pe-4">
                     <div class="bg-secondary-subtle rounded-circle d-inline-flex align-items-center justify-content-center"
                         style="width: 25px; height: 25px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray"
@@ -121,7 +121,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title"> $50 Worth of FAIRPRICE Gift Vouchers</h5>
+                                <h5 class="card-title">Successfully Claimed : $50 Worth of FAIRPRICE Gift Vouchers</h5>
                                 <p class="card-text">Objective Met: Top 5 HighScore of January 2026 Campaign</p>
                                 <p class="card-text"><small class="text-body-secondary" id="issueDate">Last updated 3
                                         mins ago</small>
@@ -186,12 +186,11 @@
                 </div>
 
                 <!-- REDEEM SECTION -->
-                <div class="redeem-section" >
+                <div class="redeem-section">
                     <div class="redeem-item-preview">
                         <img id="redemptionImage" src="assets\images\vouchers.jpg" alt="Redemption Item">
                     </div>
-                    <button id="redeemButton1" class="redeem-button redeem-button--locked"
-                        disabled>
+                    <button id="redeemButton1" class="redeem-button redeem-button--locked" disabled>
                         <span class="lock-icon">🔒</span>
                         <span>Redeem</span>
                     </button>
@@ -200,14 +199,14 @@
             </div>
         </div>
         <!-- Modal -->
-        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body" id="modalbody">
+                    <div class="modal-body justify-content-center" id="modalbody">
                         Loading
                     </div>
                     <div class="modal-footer">
@@ -216,7 +215,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
     </section>
 
@@ -321,6 +320,7 @@
         // get personal score & userId
         let top5;
         let userDto;
+        let redeem = {};
         async function getUserInfo() {
 
             const users = decodeUser(localStorage.getItem(_USERTOKEN));
@@ -340,7 +340,7 @@
                     return true;
                 }
             } catch (error) {
-                alert("An error occured");
+                alert("An error occured. Please make sure you are logged in");
                 return;
             }
         }
@@ -356,8 +356,14 @@
 
         // Submit redemption Request
         async function submitRedemption(userId, voucherId) {
-            
+
             if (UserIsTop5()) {
+                const myModalEl = document.getElementById('exampleModal');
+                const modalInstance = bootstrap.Modal.getOrCreateInstance(myModalEl);
+                // 2. Show the modal
+                modalInstance.show();
+                spinner.createSpinner("modalbody");
+                spinner.displaySpinner(true);
                 const data = {
                     usersId: userId,
                     voucherId: voucherId
@@ -373,18 +379,29 @@
 
                     if (response.ok) {
                         const userResult = await response.json();
-                        document.getElementById('RedemptionUpdate').innerText = "Redemption Successful";
+                        redeem = userResult.redeemDate;
+                        spinner.displaySpinner(false);
+                        document.getElementById('modalbody').innerText = "Redemption Successful!";
                         document.getElementById("redeem-section").classList.add("d-none");
                         document.getElementById("redeemvoucher1").classList.remove("d-none");
                     }
                 } catch (error) {
 
-                    document.getElementById('RedemptionUpdate').textContent = 'An error occured updating the score. Try again later.';
+                    document.getElementById('modalbody').textContent = 'An error occured updating the score. Try again later.';
                 }
             } else {
-                alert("Unfortunately your score is not in Top5")
+
+                document.getElementById('modalbody').textContent = `Unfortunately your score is not in Top5`;
             }
         }
+        // Creation and targeting of Mobal 
+        const myModal = document.getElementById('exampleModal')
+        const myInput = document.getElementById('modalbody')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+
         // Check if campaign has ended
         function checkCampaignStatus() {
             const redeemBtn = document.getElementById('redeemButton1');
@@ -402,49 +419,80 @@
         }
 
         document.addEventListener("DOMContentLoaded", async () => {
-
-            const highScoreStatus = await printHighscore();
-            let getUserInfoStatus = false;
-
-            if (highScoreStatus)
-                getUserInfoStatus = await getUserInfo();
-
-            if (getUserInfoStatus)
-                checkCampaignStatus();
-
+            const isLoggedIn = localStorage.getItem("usertoken"); // check local storage if user is logged in    
+            if ((!isLoggedIn) || isTokenExpired(isLoggedIn)) {
+                window.location.href = "signuplogin.html";  // if not log in to return user to log in page
+            } else {
+                const highScoreStatus = await printHighscore();//update leaderboard
+                let getUserInfoStatus = false;
+                if (highScoreStatus) {
+                    getUserInfoStatus = await getUserInfo();  //user infor 
+                    if (getUserInfoStatus) {
+                        checkCampaignStatus();
+                        checkRedeemed(userDto.userid);
+                    }
+                }
+            }
         })
 
-        // id= issueDate .textcontent = now()-voucherIssueddate
-        // function timeAgo(date) {
-        //     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+        // Check userId present in RedemptionId
+        async function checkRedeemed(userId) {
+            try {
+                const response = await fetch(`${_ENDPOINT_FINDREDEEMBYID}?userid=${userId}`, {
+                    method: 'GET',
 
-        //     let interval = Math.floor(seconds / 31536000);
-        //     if (interval >= 1) return interval + " years ago";
+                });
+                if (response.ok) {
+                    const userResult = await response.json();
+                    const isVoucherPresent = userResult.some(item => item.redemptionId.voucherId === 1);
+                    if (isVoucherPresent) {
+                        document.getElementById("redeem-section").classList.add("d-none");
+                        document.getElementById("redeemvoucher1").classList.remove("d-none");
+                        redeemDate(redeem.redeemDate);
 
-        //     interval = Math.floor(seconds / 2592000);
-        //     if (interval >= 1) return interval + " months ago";
+                    }
+                }
+            } catch (error) {
+                console.log("nono");
+                document.getElementById('RedemptionUpdate').textContent = 'An error occured updating the score. Try again later.';
+            }
+        }
 
-        //     interval = Math.floor(seconds / 86400);
-        //     if (interval >= 1) return interval + " days ago";
+        // id = issueDate.textcontent = now()-voucherIssueddate
+        function timeAgo(dateStr) {
+            const day = dateStr.substring(0, 2);
+            const month = dateStr.substring(2, 4);
+            const year = dateStr.substring(4, 8);
+            // Create a valid date object (Month is 0-indexed, so we subtract 1)
+            const pastDate = new Date(year, month - 1, day);
+            const now = new Date();
 
-        //     interval = Math.floor(seconds / 3600);
-        //     if (interval >= 1) return interval + " hours ago";
+            // 2. Calculate the difference in seconds
+            const seconds = Math.floor((now - pastDate) / 1000);
 
-        //     interval = Math.floor(seconds / 60);
-        //     if (interval >= 1) return interval + " mins ago";
+            let interval = Math.floor(seconds / 31536000);
+            if (interval >= 1) return interval + " years ago";
 
-        //     return "just now";
-        // }
-        // timeAgo feature
-        // function redeemDate() {
-        //     try {
+            interval = Math.floor(seconds / 2592000);
+            if (interval >= 1) return interval + " months ago";
+
+            interval = Math.floor(seconds / 86400);
+            if (interval >= 1) return interval + " days ago";
+
+            interval = Math.floor(seconds / 3600);
+            if (interval >= 1) return interval + " hours ago";
+
+            interval = Math.floor(seconds / 60);
+            if (interval >= 1) return interval + " mins ago";
+
+            return "just now";
+        }
+
+        function redeemDate(redemption) {
+            document.getElementById("issueDate").textContent = timeAgo(redemption) ;
+        }
 
 
-        //         document.getElementById("issueDate").textContent = timeAgo(redemption.redeemDate)
-        //     } catch (error) {
-
-        //     }
-        // }
     </script>
 </body>
 
