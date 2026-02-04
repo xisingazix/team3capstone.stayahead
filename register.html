@@ -226,6 +226,7 @@
             const email = document.getElementById("txtEmail");                      // Create constant variables to capture form inputs - txtEmail
             const pwd = document.getElementById("txtPassword");                     // Create constant variables to capture form inputs - txtPassword
             const repeat_pwd = document.getElementById("txtRepeatPassword");        // Create constant variables to capture form inputs - txtRepeatPassword
+            const userScore = JSON.parse(localStorage.getItem("userScore"));
 
             const toastElement = document.getElementById("msg-toast");              // Get the toast element - msg-toast
             const toastBodyElement = document.getElementById("msg-toast-body");     // Get the toast element - msg-toast-body
@@ -254,11 +255,12 @@
             spinner.createSpinner("btnSignup");                                     // Create the spinner, apply it to btnLogin
             spinner.displaySpinner(true);
             
+            
             const formData = {                                                      // JavaScript Object formData stores the form's input values
                 email: email.value, 
-                password: pwd.value
-            };           
-            
+                password: pwd.value,
+                score: { score :userScore}
+            };              
             const signupSuccess = await signup(formData);                             // Invoke login() function, and end (return)
             
             if(!signupSuccess){

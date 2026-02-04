@@ -56,8 +56,6 @@ async function login(formData = {}) {
             body: JSON.stringify(formData)
         });
 
-        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));      // TODO: remove simulated delay when endpoint is instated
-        await sleep(2000);
 
         if (response.ok) {                                                                    // If response status == 200 (ok)
             const result = await response.json();
@@ -93,7 +91,6 @@ async function signup(formData = {}) {
 
     if (Object.entries(formData).length == 0)
         return;
-
     /* We are are sending 
         - name
         - email
@@ -101,7 +98,6 @@ async function signup(formData = {}) {
         - role (it must be passed only by our web site)
         - Spring Boot help us take care of CSRF Cross-site Referece Forgery
     */
-
     try {
 
         const response = await fetch(_ENDPOINT_REGISTER, {
@@ -109,11 +105,9 @@ async function signup(formData = {}) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
         })
-
-        const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));      // TODO: remove delay when endpoint is instated
-        await sleep(2000);
-
+        
         if (response.ok) {
+            localStorage.removeItem("userScore");
             window.location = _LOGIN_URL;
         }
 
@@ -227,5 +221,7 @@ async function voucherCreation(formData = {}, sponsorid) {
     } catch (error) {
         console.log("Exception error gotten is:", error.message);
     }
+
+    
 }
 

@@ -157,7 +157,7 @@ function selectOption(index) {
 function nextQuestion() {
     currentQuestion++;
 
-    if (currentQuestion < 3) { //TODO: qns to end page ,adjust here 
+    if (currentQuestion < 10) { //TODO: qns to end page ,adjust here 
         loadQuestion();
     } else {
         const endTime = performance.now();  // stop bonus timer
