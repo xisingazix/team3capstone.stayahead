@@ -108,7 +108,8 @@ async function signup(formData = {}) {
         
         if (response.ok) {
             localStorage.removeItem("userScore");
-            window.location = _LOGIN_URL;
+            
+           return true
         }
 
     } catch (error) {

@@ -272,7 +272,10 @@
                 spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
                 showToast({toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to sign up. Try again."});    // If login unsuccessful, provide feeback
             }
-
+            showToast({toastElement, 
+                        toastBodyElement, 
+                        bgColor:"success", msg: "Registration Complete."});
+            setTimeout(()=>{window.location = _LOGIN_URL;}, 2000)
         });
 
     </script>
