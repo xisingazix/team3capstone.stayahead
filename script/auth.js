@@ -68,7 +68,7 @@ async function login(formData = {}) {
             if (adminStatus)                                                                 // !! This example only look for "ADMIN" authority
                 window.location = _ADMIN_URL;                                               // Redirect the user to adminpage
             else                                                                            // !! Other authority will be deemed as user
-                window.location = _HOME_URL;                                               // Redirect the user to homepage
+                window.location = _PROFILE_URL;                                               // Redirect the user to homepage
         }
 
         return;                                                                             // Else return false
