@@ -583,7 +583,7 @@ input:focus {
   width: 100%;
   z-index: -1;
   height: 100%;
-  background-image: url('../assets/images/gamepage3.jpg');
+  background-image: url('../assets/images/gamepage4.jpg');
   background-attachment: fixed;
   /* Keeps the image from moving */
   background-position: center;
@@ -978,10 +978,10 @@ input:focus {
 
 #registration-section {
   padding: 3rem 0rem;
-  background-position: 0rem -25rem;
+ 
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../assets/images/register.png");
+  background-image: url("../assets/images/4.jpg");
 }
 
 #adminregistration-section {
