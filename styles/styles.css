@@ -457,7 +457,8 @@ li {
 }
 
 .login-container {
-  align-content: center;;
+  align-content: center;
+  ;
 }
 
 .login-card {
@@ -567,13 +568,38 @@ input:focus {
 
 /* Games page */
 .game-container {
-  max-width: 43rem;
+  max-width: 38rem;
   background: white;
   border-radius: 15px;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-  padding: 0 4rem;
-  margin: 0 auto;
+  margin: 1rem auto;
 
+}
+
+.gamebg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  background-image: url('../assets/images/gamepage3.jpg');
+  background-attachment: fixed;
+  /* Keeps the image from moving */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gamesection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.game-content {
+  padding: 0 2rem;
 }
 
 .btn-custom {
@@ -654,7 +680,7 @@ input:focus {
 }
 
 .progress {
-  height: 0.5rem;
+  height: 0.25rem;
   border-radius: 10px;
 }
 
@@ -741,6 +767,7 @@ input:focus {
   line-height: 1.6;
 }
 
+
 /* responsive web TODO */
 /* for screen GREATER than 576px */
 @media only screen and (min-width: 576px) {
@@ -812,10 +839,11 @@ input:focus {
     padding-top: 4rem !important;
   }
 
-  .login-background{
-    background-position:-10rem 0;
+  .login-background {
+    background-position: -10rem 0;
   }
- .adminregister{
+
+  .adminregister {
     margin: 0 0.5rem;
   }
 }
@@ -950,7 +978,15 @@ input:focus {
 
 #registration-section {
   padding: 3rem 0rem;
-  top:2;
+  background-position: 0rem -25rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/register.png");
+}
+
+#adminregistration-section {
+  padding: 3rem 0rem;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("../assets/images/register.png");
@@ -1038,7 +1074,6 @@ input:focus {
     min-height: calc(100vh - 6rem);
     padding: 1rem 0;
   }
-
 
 }
 
