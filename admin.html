@@ -15,13 +15,14 @@
 
 <body>
     <!-- toast -->
-    <!-- https://getbootstrap.com/docs/5.3/components/toasts/ --> 
+    <!-- https://getbootstrap.com/docs/5.3/components/toasts/ -->
     <div class="toast-container p-3 top-0 start-50 translate-middle-x">
         <!-- Put toasts within -->
-        <div id="msg-toast" class="toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="4000">
+        <div id="msg-toast" class="toast align-items-center mt-2" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="true" data-bs-delay="4000">
             <div class="d-flex">
-                <div id="msg-toast-body" class="toast-body"> 
-                <!-- Message to be added here -->
+                <div id="msg-toast-body" class="toast-body">
+                    <!-- Message to be added here -->
                 </div>
                 <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
@@ -121,104 +122,110 @@
 
     <!--This is the middle part, insert your page content here-->
     <!--TODO add your section here-->
-    <div class="registercontainer" id="registration-section">
-        <div class="">
-            <div class="header text-center text-white rounded">
-                <h4>Register Sponsor </h4>
+    <section id="registration-section">
+        <div class="adminregister">
+            <div class="registercontainer">
+                <div class="header text-center text-white rounded p-3">
+                    <h4>Register Sponsor </h4>
+                </div>
+                <form id="formSponsor" class="needs-validation col m-4" novalidate>
+                    <div class="col-md-12 mb-3">
+                        <label for="txtEmail" class="form-label mw-100">Email</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="txtEmail" aria-describedby="inputGroupPrepend2"
+                                placeholder="johncena@hotmail.com" required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid email.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="txtAddress" class="form-label">Address</label>
+                        <div class="input-group">
+                            <input type="address" class="form-control" id="txtAddress"
+                                aria-describedby="inputGroupPrepend2" required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid Address.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="txtName" class="form-label">Name</label>
+                        <div class="input-group">
+                            <input type="name" class="form-control" id="txtName" aria-describedby="inputGroupPrepend2"
+                                required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid Name.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="txtPhone" class="form-label">Phone</label>
+                        <div class="input-group">
+                            <input type="tel" placeholder="98423525" class="form-control" id="txtPhone"
+                                aria-describedby="inputGroupPrepend2" required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid Phone.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 m-3 p-4 d-flex flex-row-reverse">
+                        <button class="btn login_btn" type="submit" id="btnSponsor">Register Sponsor</button>
+                    </div>
+                </form>
             </div>
-            <form id="formSponsor" class="needs-validation col m-4" novalidate>
-                <div class="col-md-12 mb-3">
-                    <label for="txtEmail" class="form-label mw-100">Email</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="txtEmail" aria-describedby="inputGroupPrepend2"
-                            placeholder="johncena@hotmail.com" required>
-                        <div class="invalid-feedback text-danger">
-                            Please enter a valid email.
+            <div class="registercontainer">
+                <div class="header text-center text-white rounded p-3">
+                    <h4>Voucher Creation </h4>
+                </div>
+                <form id="formVoucher" class="needs-validation col m-4" novalidate>
+                    <div class="col-md-12 mb-3">
+                        <label for="txtSponsorId" class="form-label mw-100">Sponsor Id</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="txtSponsorId"
+                                aria-describedby="inputGroupPrepend2" required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid email.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                    <label for="txtAddress" class="form-label">Address</label>
-                    <div class="input-group">
-                        <input type="address" class="form-control" id="txtAddress" aria-describedby="inputGroupPrepend2"
-                            required>
-                        <div class="invalid-feedback text-danger">
-                            Please enter a valid Address.
+                    <div class="col-md-12 mb-3">
+                        <label for="txtDescription" class="form-label">Reward Description</label>
+                        <div class="input-group">
+                            <input type="Description" placeholder="$50 FAIRPRICE vouchers" class="form-control"
+                                id="txtDescription" aria-describedby="inputGroupPrepend2" required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid Description.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                    <label for="txtName" class="form-label">Name</label>
-                    <div class="input-group">
-                        <input type="name" class="form-control" id="txtName" aria-describedby="inputGroupPrepend2"
-                            required>
-                        <div class="invalid-feedback text-danger">
-                            Please enter a valid Name.
+                    <div class="col-md-12 mb-3">
+                        <label for="txtNameVoucher" class="form-label">Name</label>
+                        <div class="input-group">
+                            <input type="name" class="form-control" id="txtNameVoucher"
+                                aria-describedby="inputGroupPrepend2" required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid Name.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12 mb-3">
-                    <label for="txtPhone" class="form-label">Phone</label>
-                    <div class="input-group">
-                        <input type="tel" placeholder="98423525" class="form-control" id="txtPhone"
-                            aria-describedby="inputGroupPrepend2" required>
-                        <div class="invalid-feedback text-danger">
-                            Please enter a valid Phone.
+                    <div class="col-md-12 mb-3">
+                        <label for="txtTerms" class="form-label">Terms</label>
+                        <div class="input-group">
+                            <input type="text" placeholder="/NA  if nil" class="form-control" id="txtTerms"
+                                aria-describedby="inputGroupPrepend2" required>
+                            <div class="invalid-feedback text-danger">
+                                Please enter a valid Phone.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 m-3 p-4 d-flex flex-row-reverse">
-                    <button class="btn login_btn" type="submit" id="btnSponsor">Register Sponsor</button>
-                </div>
-            </form>
+                    <div class="col-12 m-3 p-4 d-flex flex-row-reverse">
+                        <button class="btn login_btn" type="submit" id="btnVoucher"> Voucher Creation</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="header text-center text-white rounded">
-            <h4>Voucher Creation </h4>
-        </div>
-        <form id="formVoucher" class="needs-validation col m-4" novalidate>
-            <div class="col-md-12 mb-3">
-                <label for="txtSponsorId" class="form-label mw-100">Sponsor Id</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="txtSponsorId" aria-describedby="inputGroupPrepend2" required>
-                    <div class="invalid-feedback text-danger">
-                        Please enter a valid email.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 mb-3">
-                <label for="txtDescription" class="form-label">Reward Description</label>
-                <div class="input-group">
-                    <input type="Description" placeholder="$50 FAIRPRICE vouchers" class="form-control" id="txtDescription" aria-describedby="inputGroupPrepend2" required>
-                <div class="invalid-feedback text-danger">
-                        Please enter a valid Description.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 mb-3">
-                <label for="txtNameVoucher" class="form-label">Name</label>
-                <div class="input-group">
-                    <input type="name" class="form-control" id="txtNameVoucher" aria-describedby="inputGroupPrepend2" required>
-                    <div class="invalid-feedback text-danger">
-                        Please enter a valid Name.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 mb-3">
-                <label for="txtTerms" class="form-label">Terms</label>
-                <div class="input-group">
-                    <input type="text" placeholder="/NA  if nil" class="form-control" id="txtTerms"
-                        aria-describedby="inputGroupPrepend2" required>
-                    <div class="invalid-feedback text-danger">
-                        Please enter a valid Phone.
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 m-3 p-4 d-flex flex-row-reverse">
-                <button class="btn login_btn" type="submit" id="btnVoucher"> Voucher Creation</button>
-            </div>
-        </form>
-    </div>
-
+    </section>
 
     <!--Footer start here-->
     <!--Footer nav links-->
@@ -284,7 +291,7 @@
         // Custom JS statements and function
         // Sponsor Registration
         document.getElementById("formSponsor").addEventListener("submit", async (event) => {
-            
+
             event.preventDefault();                                                 // Prevent default browser events from happening
 
             const email = document.getElementById("txtEmail");                      // Create constant variables to capture form inputs - txtEmail
@@ -294,59 +301,67 @@
 
             const toastElement = document.getElementById("msg-toast");              // Get the toast element - msg-toast
             const toastBodyElement = document.getElementById("msg-toast-body");     // Get the toast element - msg-toast-body
-            
-            if(isEmpty(email.value) || isEmpty(name.value) || isEmpty(phone.value)){ // Trap empty inputs for txtEmail and txtPassword - isEmpty()
-                showToast({toastElement, 
-                        toastBodyElement,
-                        bgColor: "danger", msg: "Email,Name & Phone must not be empty."});
+
+            if (isEmpty(email.value) || isEmpty(name.value) || isEmpty(phone.value)) { // Trap empty inputs for txtEmail and txtPassword - isEmpty()
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger", msg: "Email,Name & Phone must not be empty."
+                });
                 return;
             }
-            
-            if(!isEmail(email.value)){                                              // Trap invalid email for txtEmail - isEmail()
-                showToast({toastElement, 
-                        toastBodyElement, 
-                        bgColor:"danger", msg: "Email is invalid."});
+
+            if (!isEmail(email.value)) {                                              // Trap invalid email for txtEmail - isEmail()
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger", msg: "Email is invalid."
+                });
                 return;
             }
-            
+
             if (!isValidPhone(phone.value)) {
-                showToast({toastElement, 
-                        toastBodyElement, 
-                        bgColor:"danger", msg: "Phone is invalid."});
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger", msg: "Phone is invalid."
+                });
                 return;
             }
-            if(!isValidMsg(address.value)||!isValidMsg(name.value) ){
-                showToast({toastElement, 
-                        toastBodyElement, 
-                        bgColor:"danger", msg: "Address and name is invalid. Nil if no input"});
+            if (!isValidMsg(address.value) || !isValidMsg(name.value)) {
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger", msg: "Address and name is invalid. Nil if no input"
+                });
                 return;
             }
 
             spinner.createSpinner("btnSponsor");                                     // Create the spinner, apply it to btnLogin
             spinner.displaySpinner(true);
-             
+
             const formData = {                                                      // JavaScript Object formData stores the form's input values
-                email: email.value, 
+                email: email.value,
                 name: name.value,
                 address: address.value,
                 phone: phone.value,
-            };           
+            };
             console.log(formData);
             const regSponsorSuccess = await regSponsor(formData);                             // Invoke login() function, and end (return)
-            
-            if(!regSponsorSuccess){
+
+            if (!regSponsorSuccess) {
                 spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
-                showToast({toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to Register. Try again."});    // If login unsuccessful, provide feeback
+                showToast({ toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to Register. Try again." });    // If login unsuccessful, provide feeback
             }
-            if(regSponsorSuccess){
+            if (regSponsorSuccess) {
                 spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
-                showToast({toastElement, toastBodyElement, bgColor: "success", msg: "Sponsor Registered."});    // If login unsuccessful, provide feeback
-            
-            }return
+                showToast({ toastElement, toastBodyElement, bgColor: "success", msg: "Sponsor Registered." });    // If login unsuccessful, provide feeback
+
+            } return
         });
         // Voucher Creation
         document.getElementById("formVoucher").addEventListener("submit", async (event) => {
-            
+
             event.preventDefault();                                                 // Prevent default browser events from happening
 
             const sponsorId = document.getElementById("txtSponsorId");                      // Create constant variables to capture form inputs - txtEmail
@@ -356,47 +371,53 @@
 
             const toastElement = document.getElementById("msg-toast");              // Get the toast element - msg-toast
             const toastBodyElement = document.getElementById("msg-toast-body");     // Get the toast element - msg-toast-body
-            
-            if(isEmpty(sponsorId.value) || isEmpty(rewardDescription.value)){ // Trap empty inputs for txtEmail and txtPassword - isEmpty()
-                showToast({toastElement, 
-                        toastBodyElement,
-                        bgColor: "danger", msg: "SponsorId & Description must not be empty."});
+
+            if (isEmpty(sponsorId.value) || isEmpty(rewardDescription.value)) { // Trap empty inputs for txtEmail and txtPassword - isEmpty()
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger", msg: "SponsorId & Description must not be empty."
+                });
                 return;
             }
-            
-            if(!isValidMsg(rewardDescription.value)||
-            !isValidMsg(nameVoucher.value)||!isValidMsg(terms.value) ){                                              // Trap invalid email for txtEmail - isEmail()
-                showToast({toastElement, 
-                        toastBodyElement, 
-                        bgColor:"danger", msg: "Please check name, description and terms."});
+
+            if (!isValidMsg(rewardDescription.value) ||
+                !isValidMsg(nameVoucher.value) || !isValidMsg(terms.value)) {                                              // Trap invalid email for txtEmail - isEmail()
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger", msg: "Please check name, description and terms."
+                });
                 return;
             }
-            if(!isId(sponsorId.value) ){                                              // Trap invalid email for txtEmail - isEmail()
-                showToast({toastElement, 
-                        toastBodyElement, 
-                        bgColor:"danger", msg: "Sponsor id is invalid."});
+            if (!isId(sponsorId.value)) {                                              // Trap invalid email for txtEmail - isEmail()
+                showToast({
+                    toastElement,
+                    toastBodyElement,
+                    bgColor: "danger", msg: "Sponsor id is invalid."
+                });
                 return;
             }
-            
+
             spinner.createSpinner("btnVoucher");                                     // Create the spinner, apply it to btnLogin
             spinner.displaySpinner(true);
-             
+
             const formData = {                                                      // JavaScript Object formData stores the form's input values
-                description: rewardDescription.value, 
+                description: rewardDescription.value,
                 name: nameVoucher.value,
                 terms: terms.value
-            };           
-            const regSponsorSuccess = await voucherCreation(formData,sponsorId);                             // Invoke login() function, and end (return)
+            };
+            const regSponsorSuccess = await voucherCreation(formData, sponsorId);                             // Invoke login() function, and end (return)
             console.log(regSponsorSuccess)
-            if(!regSponsorSuccess){
+            if (!regSponsorSuccess) {
                 spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
-                showToast({toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to Register. Try again."});    // If login unsuccessful, provide feeback
+                showToast({ toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to Register. Try again." });    // If login unsuccessful, provide feeback
             }
-            if(regSponsorSuccess){
+            if (regSponsorSuccess) {
                 spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
-                showToast({toastElement, toastBodyElement, bgColor: "success", msg: "Voucher Created."});    // If login unsuccessful, provide feeback
-            
-            }return
+                showToast({ toastElement, toastBodyElement, bgColor: "success", msg: "Voucher Created." });    // If login unsuccessful, provide feeback
+
+            } return
         });
     </script>
 </body>
