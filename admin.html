@@ -408,7 +408,7 @@
                 terms: terms.value
             };
             const regSponsorSuccess = await voucherCreation(formData, sponsorId);                             // Invoke login() function, and end (return)
-            console.log(regSponsorSuccess)
+            
             if (!regSponsorSuccess) {
                 spinner.displaySpinner(false);                                                                          // If login unsuccessful, hide spinner
                 showToast({ toastElement, toastBodyElement, bgColor: "danger", msg: "Unable to Register. Try again." });    // If login unsuccessful, provide feeback
